@@ -1,0 +1,41 @@
+camera:
+  index: 0
+  width: 640
+  height: 480
+  fps: 15
+
+detection:
+  model: yolov8n.pt  # ultralytics, runs offline after first download
+  conf: 0.45
+  imgsz: 640
+
+ocr:
+  enabled: true
+  langs: ['ar', 'en']
+  backend: easyocr  # or tesseract
+
+vlm:
+  enabled: false  # set true when you have a local VLM
+  # Examples for Jetson Orin Nano 8GB (quantized, offline):
+  # - llava-1.5-7b-q4
+  # - moondream2
+  # - qwen-vl-chat-int4
+  model_id: ""
+  prompt: "صف ما تراه في الصورة باختصار."
+
+tts:
+  lang: ar
+  backend: piper  # offline Arabic TTS
+  # Download an Arabic voice model, e.g.:
+  # https://github.com/rhasspy/piper/releases
+  voice_model: "models/ar.onnx"
+  output_wav: "output.wav"
+
+lidar:
+  enabled: false
+  port: "/dev/ttyUSB0"
+
+app:
+  speak_detections: true
+  announce_every_n_frames: 30
+  show_preview: true

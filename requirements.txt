@@ -1,24 +1,25 @@
-# Edge AI Assistant - dependencies
-# Core
+# Edge AI Assistant - dependencies (offline-capable)
 opencv-python>=4.8
 numpy>=1.24
 pillow>=10.0
-
-# Detection (YOLO)
-ultralytics>=8.0
-
-# Vision-Language (example - replace with your local VLM)
-# transformers>=4.38
-# torch -- install per device (Jetson / CUDA / CPU)
-
-# OCR
-easyocr>=1.7
-# pytesseract  # alternative
-
-# Arabic TTS (offline - pick one)
-# Coqui TTS / Piper TTS recommended for offline Arabic
-piper-tts>=1.2
-
-# Utils
 pyyaml>=6.0
 tqdm>=4.66
+
+# Detection (YOLO - offline after first download)
+ultralytics>=8.0
+
+# OCR (offline)
+easyocr>=1.7
+# pytesseract  # optional fallback, needs tesseract-ocr installed
+
+# Local VLM - install per device, only if vlm.enabled=true
+# torch -- install per device (Jetson / CUDA / CPU, see docs/hardware.md)
+# transformers>=4.38
+# accelerate>=0.28
+
+# Arabic TTS (offline)
+piper-tts>=1.2
+soundfile>=0.12
+
+# Optional LiDAR
+# rplidar-roboticia>=1.0
